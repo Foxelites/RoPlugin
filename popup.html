@@ -15,7 +15,7 @@
         h2 {
             margin-top: 0;
             font-size: 18px;
-            color: #00b06f;
+            color: #7FD6F1;
         }
         
         .setting {
@@ -45,26 +45,72 @@
             color: #888;
         }
         
+        .sub-option {
+            margin-left: 28px;
+            margin-top: 10px;
+            padding: 10px;
+            background: #1a1a1a;
+            border-radius: 5px;
+        }
+        
+        .sub-option label {
+            font-size: 13px;
+        }
+        
+        .sub-option.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
         .status {
             text-align: center;
             padding: 10px;
-            background: #00b06f;
-            color: white;
+            background: #7FD6F1;
+            color: #1a1a1a;
             border-radius: 5px;
             margin-top: 15px;
             display: none;
         }
+        
+        .apply-btn {
+            width: 100%;
+            padding: 12px;
+            background: #7FD6F1;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .apply-btn:hover {
+            background: #5FC4E0;
+        }
+        
+        .apply-btn:active {
+            background: #3FB2CE;
+        }
     </style>
 </head>
 <body>
-    <h2>Robux Plugin Settings</h2>
+    <h2>RoStreamer</h2>
     
     <div class="setting">
         <label>
             <input type="checkbox" id="enableBlur">
             <span>Enable Blur Effect</span>
         </label>
-        <p>Blur robux amounts until you hover over them</p>
+        <p>Blur robux amounts on Roblox pages</p>
+        
+        <div class="sub-option" id="hoverOption">
+            <label>
+                <input type="checkbox" id="enableHover">
+                <span>Enable Hover to Reveal</span>
+            </label>
+            <p>Unblur when hovering over the Robux amount</p>
+        </div>
     </div>
     
     <div class="setting">
@@ -75,7 +121,7 @@
         <p>Change the robux amount to a custom value</p>
         
         <div style="margin-top: 10px; display: flex; gap: 10px; align-items: center;">
-            <input type="number" id="robuxValue" placeholder="9.6" step="0.1" min="0" 
+            <input type="text" id="robuxValue" placeholder="9.6" maxlength="4" 
                    style="flex: 1; padding: 8px; background: #1a1a1a; border: 1px solid #444; 
                           border-radius: 5px; color: #fff; font-size: 14px;">
             <select id="robuxUnit" 
@@ -88,7 +134,9 @@
         </div>
     </div>
     
-    <div class="status" id="status">Settings saved!</div>
+    <button class="apply-btn" id="applyBtn">Apply Changes</button>
+    
+    <div class="status" id="status">Settings applied! Refreshing page...</div>
     
     <script src="popup.js"></script>
 </body>

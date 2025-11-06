@@ -1,6 +1,55 @@
+/* Blur wordt standaard toegepast - JS controleert of het uit moet */
 #nav-robux-amount,
-.text-robux,
-[data-rbx-counter-type="robux"] {
+.rbx-navbar-robux,
+.nav-robux-amount,
+[data-testid="navigation-robux-amount"],
+.navbar-robux .text-robux,
+li.navbar-robux .text-robux {
     filter: blur(6px) !important;
-    user-select: none !important;
+}
+
+/* Disable blur class - wordt toegevoegd als blur uitstaat */
+body.rostreamer-blur-disabled #nav-robux-amount,
+body.rostreamer-blur-disabled #nav-robux-amount:hover,
+body.rostreamer-blur-disabled .rbx-navbar-robux,
+body.rostreamer-blur-disabled .nav-robux-amount,
+body.rostreamer-blur-disabled [data-testid="navigation-robux-amount"],
+body.rostreamer-blur-disabled .navbar-robux .text-robux,
+body.rostreamer-blur-disabled li.navbar-robux .text-robux {
+    filter: none !important;
+}
+
+/* Hover effect - ALLEEN als hover NIET disabled is EN blur niet disabled */
+body:not(.rostreamer-hover-disabled):not(.rostreamer-blur-disabled) #nav-robux-amount,
+body:not(.rostreamer-hover-disabled):not(.rostreamer-blur-disabled) .rbx-navbar-robux,
+body:not(.rostreamer-hover-disabled):not(.rostreamer-blur-disabled) .nav-robux-amount,
+body:not(.rostreamer-hover-disabled):not(.rostreamer-blur-disabled) [data-testid="navigation-robux-amount"],
+body:not(.rostreamer-hover-disabled):not(.rostreamer-blur-disabled) .navbar-robux .text-robux,
+body:not(.rostreamer-hover-disabled):not(.rostreamer-blur-disabled) li.navbar-robux .text-robux {
+    transition: filter 0.2s ease !important;
+}
+
+body:not(.rostreamer-hover-disabled):not(.rostreamer-blur-disabled) #nav-robux-amount:hover,
+body:not(.rostreamer-hover-disabled):not(.rostreamer-blur-disabled) .rbx-navbar-robux:hover,
+body:not(.rostreamer-hover-disabled):not(.rostreamer-blur-disabled) .nav-robux-amount:hover,
+body:not(.rostreamer-hover-disabled):not(.rostreamer-blur-disabled) [data-testid="navigation-robux-amount"]:hover,
+body:not(.rostreamer-hover-disabled):not(.rostreamer-blur-disabled) .navbar-robux .text-robux:hover,
+body:not(.rostreamer-hover-disabled):not(.rostreamer-blur-disabled) li.navbar-robux .text-robux:hover {
+    filter: blur(0px) !important;
+}
+
+/* Als hover IS disabled, forceer blur ALTIJD (zelfs bij hover) */
+body.rostreamer-hover-disabled:not(.rostreamer-blur-disabled) #nav-robux-amount,
+body.rostreamer-hover-disabled:not(.rostreamer-blur-disabled) #nav-robux-amount:hover,
+body.rostreamer-hover-disabled:not(.rostreamer-blur-disabled) .rbx-navbar-robux,
+body.rostreamer-hover-disabled:not(.rostreamer-blur-disabled) .rbx-navbar-robux:hover,
+body.rostreamer-hover-disabled:not(.rostreamer-blur-disabled) .nav-robux-amount,
+body.rostreamer-hover-disabled:not(.rostreamer-blur-disabled) .nav-robux-amount:hover,
+body.rostreamer-hover-disabled:not(.rostreamer-blur-disabled) [data-testid="navigation-robux-amount"],
+body.rostreamer-hover-disabled:not(.rostreamer-blur-disabled) [data-testid="navigation-robux-amount"]:hover,
+body.rostreamer-hover-disabled:not(.rostreamer-blur-disabled) .navbar-robux .text-robux,
+body.rostreamer-hover-disabled:not(.rostreamer-blur-disabled) .navbar-robux .text-robux:hover,
+body.rostreamer-hover-disabled:not(.rostreamer-blur-disabled) li.navbar-robux .text-robux,
+body.rostreamer-hover-disabled:not(.rostreamer-blur-disabled) li.navbar-robux .text-robux:hover {
+    filter: blur(6px) !important;
 }

@@ -1,16 +1,28 @@
 {
   "manifest_version": 3,
-  "name": "Robux Blur & Modifier",
+  "name": "RoStreamer",
   "version": "2.0",
-  "description": "Blurs Robux amount until hover, displays custom value.",
+  "description": "Hide your real Robux balance while streaming or recording. Blur and customize displayed amounts.",
   "permissions": ["storage"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
   },
   "content_scripts": [
     {
       "matches": ["*://*.roblox.com/*"],
-      "js": ["content.js"]
+      "css": ["hide.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
     }
   ]
 }
