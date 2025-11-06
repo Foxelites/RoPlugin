@@ -1,0 +1,6 @@
+#nav-robux-amount,
+.text-robux,
+[data-rbx-counter-type="robux"] {
+    filter: blur(6px) !important;
+    user-select: none !important;
+}

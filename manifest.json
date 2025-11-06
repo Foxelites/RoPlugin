@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Robux Blur & Modifier",
+  "version": "2.0",
+  "description": "Blurs Robux amount until hover, displays custom value.",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.roblox.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
